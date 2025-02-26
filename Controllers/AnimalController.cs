@@ -21,8 +21,8 @@ namespace WebZoo.Controllers
             {
                 return NotFound("Зоопарк пуст");
             }
-
-            return Ok(animalList);
+                return Ok(animalList);
+            }
         }
 
         [HttpGet("{id}")]
@@ -47,8 +47,12 @@ namespace WebZoo.Controllers
 
             if (name == null && animalType == null)
             {
-                return BadRequest("Неверное имя или вид животного");                
+                return Ok(newAnimal);
             }
+            else
+            {
+                return BadRequest("Неверное имя или вид животного");
+            }            
 
             return Ok(newAnimal);
         }
