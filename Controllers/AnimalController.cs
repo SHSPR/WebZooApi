@@ -21,8 +21,7 @@ namespace WebZoo.Controllers
             {
                 return NotFound("Зоопарк пуст");
             }
-                return Ok(animalList);
-            }
+            return Ok(animalList);
         }
 
         [HttpGet("{id}")]
@@ -47,25 +46,22 @@ namespace WebZoo.Controllers
 
             if (name == null && animalType == null)
             {
-                return Ok(newAnimal);
-            }
-            else
-            {
                 return BadRequest("Неверное имя или вид животного");
-            }            
+
+            }
 
             return Ok(newAnimal);
         }
 
         [HttpPut("{id}/feed")]
         public IActionResult FeedAnimal(int id, int foodQuantity)
-        {        
+        {
             if (_animalService.GetAnimalById(id) == null)
             {
                 return NotFound($"Не найдено животного с номером: {id}");
             }
-            else if (foodQuantity <= 0) 
-            { 
+            else if (foodQuantity <= 0)
+            {
                 return BadRequest("Количество еды не может быть отрицательным");
             }
             else
@@ -88,3 +84,5 @@ namespace WebZoo.Controllers
         }
     }
 }
+
+
