@@ -21,10 +21,8 @@ namespace WebZoo.Controllers
             {
                 return NotFound("Зоопарк пуст");
             }
-            else
-            {
-                return Ok(animalList);
-            }
+
+            return Ok(animalList);
         }
 
         [HttpGet("{id}")]
